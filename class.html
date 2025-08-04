@@ -144,7 +144,7 @@
                                         Flicker (%): <span id="flickerValue" class="text-warning">90</span>
                                         <small class="text-muted d-block" id="flickerRange">Range: Loading...</small>
                                     </label>
-                                    <input type="range" id="flickerSlider" class="form-range" min="0" max="100" value="1" step=".5">
+                                    <input type="range" id="flickerSlider" class="form-range" min="10" max="120" value="90" step="10">
                                 </div>
                             </div>
                             
@@ -392,14 +392,7 @@
                 const cctMax = Math.max(...gradeData.CCT.map(r => r.range.max));
                 cctSlider.min = cctMin;
                 cctSlider.max = cctMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.CCT.find(r => r.rating === 'good');
-                if (goodRange) {
-                    cctSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    cctSlider.value = Math.round((cctMin + cctMax) / 2);
-                }
+                cctSlider.value = Math.round((cctMin + cctMax) / 2);
                 document.getElementById('cctValue').textContent = cctSlider.value;
                 document.getElementById('cctRange').textContent = `Range: ${cctMin} - ${cctMax} K`;
             }
@@ -410,14 +403,7 @@
                 const criMax = Math.max(...gradeData.CRI.map(r => r.range.max));
                 criSlider.min = criMin;
                 criSlider.max = criMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.CRI.find(r => r.rating === 'good');
-                if (goodRange) {
-                    criSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    criSlider.value = Math.round((criMin + criMax) / 2);
-                }
+                criSlider.value = Math.round((criMin + criMax) / 2);
                 document.getElementById('criValue').textContent = criSlider.value;
                 document.getElementById('criRange').textContent = `Range: ${criMin} - ${criMax}`;
             }
@@ -428,14 +414,7 @@
                 const flickerMax = Math.max(...gradeData.Flicker.map(r => r.range.max));
                 flickerSlider.min = flickerMin;
                 flickerSlider.max = flickerMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Flicker.find(r => r.rating === 'good');
-                if (goodRange) {
-                    flickerSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    flickerSlider.value = Math.round((flickerMin + flickerMax) / 2);
-                }
+                flickerSlider.value = Math.round((flickerMin + flickerMax) / 2);
                 document.getElementById('flickerValue').textContent = flickerSlider.value;
                 document.getElementById('flickerRange').textContent = `Range: ${flickerMin} - ${flickerMax}%`;
             }
@@ -446,14 +425,7 @@
                 const glareMax = Math.max(...gradeData.UGR.map(r => r.range.max));
                 glareSlider.min = glareMin;
                 glareSlider.max = glareMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.UGR.find(r => r.rating === 'good');
-                if (goodRange) {
-                    glareSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    glareSlider.value = Math.round((glareMin + glareMax) / 2);
-                }
+                glareSlider.value = Math.round((glareMin + glareMax) / 2);
                 document.getElementById('glareValue').textContent = glareSlider.value;
                 document.getElementById('glareRange').textContent = `Range: ${glareMin} - ${glareMax}`;
             }
@@ -465,14 +437,7 @@
                 const uniformityMax = Math.max(...gradeData.Uniformity.map(r => r.range.max));
                 uniformitySlider.min = uniformityMin;
                 uniformitySlider.max = uniformityMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Uniformity.find(r => r.rating === 'good');
-                if (goodRange) {
-                    uniformitySlider.value = ((goodRange.range.min + goodRange.range.max) / 2).toFixed(1);
-                } else {
-                    uniformitySlider.value = ((uniformityMin + uniformityMax) / 2).toFixed(1);
-                }
+                uniformitySlider.value = ((uniformityMin + uniformityMax) / 2).toFixed(1);
                 document.getElementById('uniformityValue').textContent = uniformitySlider.value;
                 document.getElementById('uniformityRange').textContent = `Range: ${uniformityMin} - ${uniformityMax}`;
             }
@@ -483,14 +448,7 @@
                 const melanopicMax = Math.max(...gradeData.Melanopic_EDI.map(r => r.range.max));
                 melanopicSlider.min = melanopicMin;
                 melanopicSlider.max = melanopicMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Melanopic_EDI.find(r => r.rating === 'good');
-                if (goodRange) {
-                    melanopicSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    melanopicSlider.value = Math.round((melanopicMin + melanopicMax) / 2);
-                }
+                melanopicSlider.value = Math.round((melanopicMin + melanopicMax) / 2);
                 document.getElementById('melanopicValue').textContent = melanopicSlider.value;
                 document.getElementById('melanopicRange').textContent = `Range: ${melanopicMin} - ${melanopicMax}`;
             }
@@ -501,14 +459,7 @@
                 const verticalMax = Math.max(...gradeData.Vertical_Illuminance.map(r => r.range.max));
                 verticalSlider.min = verticalMin;
                 verticalSlider.max = verticalMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Vertical_Illuminance.find(r => r.rating === 'good');
-                if (goodRange) {
-                    verticalSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    verticalSlider.value = Math.round((verticalMin + verticalMax) / 2);
-                }
+                verticalSlider.value = Math.round((verticalMin + verticalMax) / 2);
                 document.getElementById('verticalValue').textContent = verticalSlider.value;
                 document.getElementById('verticalRange').textContent = `Range: ${verticalMin} - ${verticalMax} lux`;
             }
@@ -519,14 +470,7 @@
                 const exposureMax = Math.max(...gradeData.Exposure_Duration.map(r => r.range.max));
                 exposureSlider.min = exposureMin;
                 exposureSlider.max = exposureMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Exposure_Duration.find(r => r.rating === 'good');
-                if (goodRange) {
-                    exposureSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    exposureSlider.value = Math.round((exposureMin + exposureMax) / 2);
-                }
+                exposureSlider.value = Math.round((exposureMin + exposureMax) / 2);
                 document.getElementById('exposureValue').textContent = exposureSlider.value;
                 document.getElementById('exposureRange').textContent = `Range: ${exposureMin} - ${exposureMax} hours`;
             }
@@ -537,14 +481,7 @@
                 const luxMax = Math.max(...gradeData.Lux.map(r => r.range.max));
                 luxSlider.min = luxMin;
                 luxSlider.max = luxMax;
-                
-                // Find a "good" range and set default to middle of that range
-                const goodRange = gradeData.Lux.find(r => r.rating === 'good');
-                if (goodRange) {
-                    luxSlider.value = Math.round((goodRange.range.min + goodRange.range.max) / 2);
-                } else {
-                    luxSlider.value = Math.round((luxMin + luxMax) / 2);
-                }
+                luxSlider.value = Math.round((luxMin + luxMax) / 2);
                 document.getElementById('luxValue').textContent = luxSlider.value;
                 document.getElementById('luxRange').textContent = `Range: ${luxMin} - ${luxMax} lux`;
             }
@@ -581,44 +518,58 @@
             };
 
             let comparisonHTML = '<div class="row g-3">';
+            
+            // Compare each parameter
             for (let param in gradeData) {
                 if (param === 'age_range') continue;
+                
                 const currentValue = currentValues[param];
                 const recommendations = gradeData[param];
+                
+                comparisonHTML += `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card bg-secondary bg-opacity-25 border-0 rounded-3">
+                            <div class="card-body">
+                                <h5 class="text-info mb-3">${param}</h5>
+                                <p><strong class="text-warning">Current Value:</strong> ${currentValue} ${getUnit(param)}</p>
+                `;
 
                 let bestMatch = null;
                 let bestRating = 'unknown';
-                recommendations.forEach((rec) => {
-                    if (currentValue >= rec.range.min && currentValue <= rec.range.max) {
+
+                // Find the best matching recommendation
+                recommendations.forEach((rec, index) => {
+                    const min = rec.range.min;
+                    const max = rec.range.max;
+                    
+                    if (currentValue >= min && currentValue <= max) {
                         bestMatch = rec;
                         bestRating = rec.rating;
                     }
                 });
 
-                comparisonHTML += `
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-secondary bg-opacity-25 border-0 rounded-3 h-100">
-                            <div class="card-body">
-                                <h5 class="text-info mb-3">${param}</h5>
-                                <p class="text-white"><strong class="text-warning">Current Value:</strong> ${currentValue} ${getUnit(param)}</p>
-                                ${bestMatch ? `
-                                    <div class="alert ${bestRating === 'good' ? 'alert-success' : 'alert-danger'} mt-2">
-                                        <strong>Rating:</strong> ${bestRating.toUpperCase()}<br>
-                                        <strong>Reason:</strong> ${bestMatch.reason}<br>
-                                        <strong>Recommendation:</strong> ${bestMatch.recommendation}
-                                    </div>
-                                ` : `
-                                    <div class="alert alert-warning mt-2">
-                                        <strong>Rating:</strong> UNKNOWN<br>
-                                        <strong>Note:</strong> Current value doesn't match any specific range in our recommendations.
-                                    </div>
-                                `}
-                            </div>
+                if (bestMatch) {
+                    comparisonHTML += `
+                        <div class="alert ${bestRating === 'good' ? 'alert-success' : 'alert-danger'} mt-2">
+                            <strong>Rating:</strong> ${bestRating.toUpperCase()}<br>
+                            <strong>Reason:</strong> ${bestMatch.reason}<br>
+                            <strong>Recommendation:</strong> ${bestMatch.recommendation}
                         </div>
-                    </div>
-                `;
+                    `;
+                } else {
+                    comparisonHTML += `
+                        <div class="alert alert-warning mt-2">
+                            <strong>Rating:</strong> UNKNOWN<br>
+                            <strong>Note:</strong> Current value doesn't match any specific range in our recommendations.
+                        </div>
+                    `;
+                }
+
+                comparisonHTML += '</div></div>';
             }
+
             comparisonHTML += '</div>';
+            
             document.getElementById('comparisonContent').innerHTML = comparisonHTML;
             document.getElementById('comparisonResults').style.display = 'block';
         }

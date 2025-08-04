@@ -17,8 +17,8 @@
       rel="stylesheet"
     />
     <script type="text/javascript">
-    //   document.oncontextmenu = new Function("return false;");
-    //   document.onselectstart = new Function("return false;");
+      document.oncontextmenu = new Function("return false;");
+      document.onselectstart = new Function("return false;");
     </script>
   </head>
   <body class="bg-dark text-light">
@@ -132,11 +132,11 @@
               <div id="results" class="mt-4"></div>
 
               <!-- Additional Simulate Button -->
-              <div class="text-center mt-3">
-                <button type="button" class="btn btn-outline-danger btn-lg px-5" onclick="goToClassroom()">
-                  Go to Classroom Simulator
-                </button>
-              </div>
+              <!-- <div class="text-center mt-3">
+                <a href="classroom.html" class="btn btn-outline-danger btn-lg px-5">
+                  Simulate
+                </a>
+              </div> -->
             </div>
           </div>
         </div>
@@ -196,31 +196,6 @@
             </div>
           `;
         }
-      }
-
-      function goToClassroom() {
-        const grade = document.getElementById("grade").value;
-        const environment = document.getElementById("environment").value;
-
-        if (!grade || !environment) {
-          alert("Please select both grade and environment before proceeding to the classroom simulator.");
-          return;
-        }
-
-        // Store the selected data in cookies
-        const selectedData = {
-          grade: grade,
-          environment: environment,
-          timestamp: new Date().toISOString()
-        };
-
-        // Set cookies with the selected data
-        document.cookie = `selectedGrade=${grade}; path=/; max-age=3600`; // 1 hour expiry
-        document.cookie = `selectedEnvironment=${environment}; path=/; max-age=3600`;
-        document.cookie = `selectedData=${JSON.stringify(selectedData)}; path=/; max-age=3600`;
-
-        // Redirect to classroom.html
-        window.location.href = "classroom.html";
       }
     </script>
   </body>
